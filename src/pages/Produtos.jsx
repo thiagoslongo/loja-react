@@ -1,4 +1,5 @@
 import useProdutos from '../hooks/useProdutos'
+import ProdutoCard from '../components/ProdutoCard'
 
 function Produtos() {
     
@@ -18,7 +19,14 @@ function Produtos() {
 
             <div>
                 {produtos.map((produto) => (
-                    <p key={produto.id}> {produto.nome}</p> 
+                    <ProdutoCard
+                        key={produto.id}  
+                        id={produto.id}
+                        nome={produto.nome}
+                        preco={produto.preco}
+                        categoria={produto.categoria}
+                        imagem={produto.imagem}
+                    />
                 ))}
             </div>   
         </div>
