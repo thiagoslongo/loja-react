@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { formatarMoeda } from "../utils/moeda";
 
 function ProdutoCard ({ id, nome, preco, categoria, imagem }) {
 
@@ -8,9 +9,9 @@ function ProdutoCard ({ id, nome, preco, categoria, imagem }) {
                 <img src={imagem} alt={nome} />
             </div>
             <div>
-                <p>Categoria: {categoria}</p>
-                <p>Produto: {nome}</p>
-                <p>Preço Unitário: {preco}</p>
+                <p>{categoria}</p>
+                <p>{nome}</p>
+                <p>{formatarMoeda(preco)}</p>
                 <Link to={`/produtos/${id}`}>Ver detalhes </Link>
             </div>
             <button>Adicionar ao carrinho</button>
