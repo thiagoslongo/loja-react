@@ -1,14 +1,13 @@
 import useProdutos from '../hooks/useProdutos'
 import ProdutoCard from '../components/ProdutoCard'
-import { useState } from 'react'
-import { useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { filtrarProdutos } from '../utils/busca'
 
 function Produtos() {
     
     const { produtos, loading, error } = useProdutos()
     const [busca, setBusca] = useState('')
-    const pesquisaProdutos = useMemo (() => filtrarProdutos(produtos, busca), [produtos, busca])
+    const produtosFiltrados = useMemo (() => filtrarProdutos(produtos, busca), [produtos, busca])
     
     return (
         <div>
@@ -22,14 +21,22 @@ function Produtos() {
                 <p>Nenhum produto disponível.</p>
             )}
 
-            <input 
+            <div>
+            {!loading && !error &&<input 
                 type='text'
                 placeholder='Buscar produto pelo nome'
                 value={busca}
-                onChange={(e) => setBusca(e.target.value)} />
+                onChange={(e) => setBusca(e.target.value)} />}
+            
+            {busca && <button onClick={() => setBusca('')}>Limpar busca</button>}
+
+            {!loading && !error && produtosFiltrados.length === 0 && produtos.length > 0 && (
+                <p>Nenhum produto encontrado</p>
+            )}
+            </div>
 
             <div>
-                {pesquisaProdutos.map((produto) => (
+                {produtosFiltrados.map((produto) => (
                     <ProdutoCard
                         key={produto.id}  
                         id={produto.id}
