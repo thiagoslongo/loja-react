@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { formatarMoeda } from "../utils/moeda";
+import useCarrinho from "../hooks/useCarrinho"
 
-function ProdutoCard ({ id, nome, preco, categoria, imagem }) {
+function ProdutoCard ({ id, nome, preco, categoria, imagem, estoque }) {
+
+    const { adicionarItem } = useCarrinho()
 
     return (
         <div>
@@ -14,11 +17,11 @@ function ProdutoCard ({ id, nome, preco, categoria, imagem }) {
                 <p>{formatarMoeda(preco)}</p>
                 <Link to={`/produtos/${id}`}>Ver detalhes </Link>
             </div>
-            <button>Adicionar ao carrinho</button>
+            <button onClick={() => adicionarItem({id, nome, preco, categoria, imagem, estoque})}>
+                Adicionar ao carrinho
+            </button>
         </div>
     )
 }
 
 export default ProdutoCard;
-
-

@@ -44,6 +44,7 @@ function Produtos() {
                         preco={produto.preco}
                         categoria={produto.categoria}
                         imagem={produto.imagem}
+                        estoque={produto.estoque}
                     />
                 ))}
             </div>   
