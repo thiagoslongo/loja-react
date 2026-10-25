@@ -1,8 +1,21 @@
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import useCarrinho from "../hooks/useCarrinho";
+
 function Sucesso() {
+    const { limparCarrinho } = useCarrinho();
+
+    useEffect(() => {
+        limparCarrinho()
+    }, [])
+
     return (
-        <>
-            <h1>Sucesso</h1>
-        </>
+        <div>
+            <h1>Parabéns! Sua compra foi aprovada com sucesso!</h1>
+            <Link to="/produtos" >
+                Voltar aos produtos
+            </Link>
+        </div>
     )
 }
 
