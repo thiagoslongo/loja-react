@@ -1,12 +1,15 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { usePagamento } from "../hooks/usePagamento.js";
+import useCarrinho from "../hooks/useCarrinho.js";
+import { formatarMoeda } from "../utils/moeda.js";
 
 function Pagamento() {
 
     const { register, handleSubmit, formState: {errors} } = useForm()
     const navegar = useNavigate()
     const { carregando, processarPagamento } = usePagamento()
+    const { valorTotal } = useCarrinho();
 
     async function enviarDadosCartao(dadosCartao) {
         const tentativaGolpe = await processarPagamento(dadosCartao)
@@ -20,6 +23,8 @@ function Pagamento() {
     return (
         <div>
         <h2>Dados do pagamento</h2>
+
+        <p>Total: {formatarMoeda(valorTotal)}</p>
 
         <form onSubmit={handleSubmit(enviarDadosCartao)}>
             <div>
