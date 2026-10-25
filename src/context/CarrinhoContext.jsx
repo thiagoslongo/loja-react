@@ -46,6 +46,11 @@ export function CarrinhoProvider({ children }) {
   }
 
   function alterarQuantidade(id, novaQuantidade) {
+    const itemAtual = itens.find((item) => item.id === id);
+        if (novaQuantidade < 1 || novaQuantidade > itemAtual.estoque) {
+          return; 
+        }
+
     setItens(
       itens.map((item) =>
         item.id === id ? { ...item, quantidade: novaQuantidade } : item,

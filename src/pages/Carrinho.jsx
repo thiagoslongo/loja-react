@@ -4,7 +4,7 @@ import ItemCarrinho from "../components/ItemCarrinho"
 
 function Carrinho() {
 
-    const { itens } = useCarrinho()
+    const { itens, removerItem, alterarQuantidade } = useCarrinho()
 
     return (
         <div>
@@ -13,9 +13,12 @@ function Carrinho() {
                 {itens.map((item) => (
                     <ItemCarrinho
                         key={item.id}
+                        id={item.id}
                         nome={item.nome}
                         preco={item.preco}
                         quantidade={item.quantidade}
+                        removerItem={removerItem}
+                        alterarQuantidade={alterarQuantidade}
                     />
                 ))}
             </div>
