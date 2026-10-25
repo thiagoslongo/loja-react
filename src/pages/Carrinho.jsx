@@ -1,31 +1,39 @@
 import useCarrinho from "../hooks/useCarrinho";
 import { formatarMoeda } from "../utils/moeda";
-import ItemCarrinho from "../components/ItemCarrinho"
+import ItemCarrinho from "../components/ItemCarrinho";
+import { Link } from "react-router-dom";
 
 function Carrinho() {
+  const { itens, removerItem, alterarQuantidade, valorTotal } = useCarrinho();
 
-    const { itens, removerItem, alterarQuantidade } = useCarrinho()
+  return (
+    <div>
+      <h1>Meu carrinho</h1>
 
-    return (
-        <div>
-            <h1>Meu carrinho</h1>
-            <div>
-                {itens.map((item) => (
-                    <ItemCarrinho
-                        key={item.id}
-                        id={item.id}
-                        nome={item.nome}
-                        preco={item.preco}
-                        quantidade={item.quantidade}
-                        removerItem={removerItem}
-                        alterarQuantidade={alterarQuantidade}
-                    />
-                ))}
-            </div>
-        </div>
-    )
+      {itens.length === 0 && (
+      <div>
+        <p>Seu carrinho está vazio</p>
+        
+        <Link to="/produtos">Ver Produtos</Link>
+      </div>)}
+
+      <div>
+        {itens.map((item) => (
+          <ItemCarrinho
+            key={item.id}
+            id={item.id}
+            nome={item.nome}
+            preco={item.preco}
+            quantidade={item.quantidade}
+            removerItem={removerItem}
+            alterarQuantidade={alterarQuantidade}
+          />
+        ))}
+      </div>
+      {itens.length > 0 && (
+      <p>Valor Total: {formatarMoeda(valorTotal)}</p>
+    )}
+    </div>
+  );
 }
-
-export default Carrinho
-
-
+export default Carrinho;
