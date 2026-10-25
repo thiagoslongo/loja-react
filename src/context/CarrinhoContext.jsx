@@ -3,7 +3,6 @@ import { createContext, useState, useMemo } from "react";
 export const CarrinhoContext = createContext();
 
 export function CarrinhoProvider({ children }) {
-    
   const [itens, setItens] = useState([]);
   const quantidadeTotal = useMemo(
     () => itens.reduce((total, item) => total + item.quantidade, 0),
@@ -11,21 +10,29 @@ export function CarrinhoProvider({ children }) {
   );
 
   const valorTotal = useMemo(
-    () => itens.reduce((total, item) => total + item.preco * item.quantidade, 0),
-    [itens]
+    () =>
+      itens.reduce((total, item) => total + item.preco * item.quantidade, 0),
+    [itens],
   );
 
   function adicionarItem(produto) {
-    const itemExistente = itens.find(item => item.id === produto.id);
-      if (itemExistente) {
-        if (itemExistente.quantidade >= itemExistente.estoque) {
-          return
-        }
-        setItens(itens.map((item) =>
-          item.id === produto.id? { ...item, quantidade: item.quantidade + 1  } : item,
-        ));
+    if (produto.estoque <= 0) {
+      return;
+    }
+    const itemExistente = itens.find((item) => item.id === produto.id);
+    if (itemExistente) {
+      if (itemExistente.quantidade >= itemExistente.estoque) {
         return;
       }
+      setItens(
+        itens.map((item) =>
+          item.id === produto.id
+            ? { ...item, quantidade: item.quantidade + 1 }
+            : item,
+        ),
+      );
+      return;
+    }
 
     setItens([...itens, { ...produto, quantidade: 1 }]);
   }
@@ -55,7 +62,7 @@ export function CarrinhoProvider({ children }) {
         removerItem,
         alterarQuantidade,
         quantidadeTotal,
-        valorTotal
+        valorTotal,
       }}
     >
       {children}
