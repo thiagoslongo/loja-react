@@ -11,11 +11,11 @@ function Carrinho() {
       <h1>Meu carrinho</h1>
 
       {itens.length === 0 && (
-      <div>
-        <p>Seu carrinho está vazio</p>
-        
-        <Link to="/produtos">Ver Produtos</Link>
-      </div>)}
+        <div>
+          <p>Seu carrinho está vazio</p>
+          <Link to="/produtos">Ver Produtos</Link>
+        </div>
+      )}
 
       <div>
         {itens.map((item) => (
@@ -31,8 +31,11 @@ function Carrinho() {
         ))}
       </div>
       {itens.length > 0 && (
-      <p>Valor Total: {formatarMoeda(valorTotal)}</p>
-    )}
+        <div>
+          <p>Valor Total: {formatarMoeda(valorTotal)}</p>
+          <Link to="/pagamento">Finalizar compra</Link>
+        </div>
+      )}
     </div>
   );
 }

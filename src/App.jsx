@@ -8,6 +8,7 @@ import Falha from './pages/Falha'
 import NaoEncontrada from './pages/NaoEncontrada'
 import Sucesso from './pages/Sucesso'
 import Pagamento from './pages/Pagamento'
+import RotaPrivada from "./routes/RotaPrivada"
 
 function App() {
 
@@ -24,8 +25,8 @@ function App() {
 
       <Route path="/carrinho" element={<Carrinho />} />
 
-      <Route path="/pagamento" element={<Pagamento />} />
-
+      <Route path="/pagamento" element={<RotaPrivada><Pagamento /> </RotaPrivada>} />
+      
       <Route path="/sucesso" element={<Sucesso />} />
 
       <Route path="/falha" element={<Falha />} />
