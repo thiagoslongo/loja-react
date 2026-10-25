@@ -16,6 +16,17 @@ export function CarrinhoProvider({ children }) {
   );
 
   function adicionarItem(produto) {
+    const itemExistente = itens.find(item => item.id === produto.id);
+      if (itemExistente) {
+        if (itemExistente.quantidade >= itemExistente.estoque) {
+          return
+        }
+        setItens(itens.map((item) =>
+          item.id === produto.id? { ...item, quantidade: item.quantidade + 1  } : item,
+        ));
+        return;
+      }
+
     setItens([...itens, { ...produto, quantidade: 1 }]);
   }
 
