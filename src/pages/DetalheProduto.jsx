@@ -1,10 +1,12 @@
 import { useParams, Link } from "react-router-dom";
 import useProduto from "../hooks/useProduto";
 import { formatarMoeda } from "../utils/moeda";
+import useCarrinho from "../hooks/useCarrinho";
 
 function DetalheProduto() {
   const { id } = useParams();
   const { produto, loading, error } = useProduto(id);
+  const { adicionarItem } = useCarrinho()
 
   return (
     <div>
@@ -28,7 +30,9 @@ function DetalheProduto() {
           <p>{produto.descricao}</p>
           <p>{produto.estoque}</p>
 
-          <button>Adicionar ao carrinho</button>
+          <button onClick={() => adicionarItem(produto)}>
+            Adicionar ao carrinho
+          </button>
         </div>
       )}
 
@@ -37,3 +41,5 @@ function DetalheProduto() {
 }
 
 export default DetalheProduto;
+
+
