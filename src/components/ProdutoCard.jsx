@@ -7,7 +7,7 @@ function ProdutoCard ({ id, nome, preco, categoria, imagem, estoque }) {
     const { adicionarItem } = useCarrinho()
 
     return (
-        <div className="flex flex-col gap-2 rounded-lg border border-[#CEBEA4] bg-white p-4 shadow-sm">
+        <div className="flex flex-col gap-2 rounded-lg border border-[#CEBEA4] bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
             <div>
                 <img className="w-full h-48 object-contain" src={imagem} alt={nome} />
             </div>
