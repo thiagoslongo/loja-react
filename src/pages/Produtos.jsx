@@ -12,13 +12,13 @@ function Produtos() {
   );
 
   return (
-    <div>
+    <section className="mx-auto w-full max-w-7xl px-4 py-6 sm:py-10">
       <h1 className="mb-4 text-2xl font-semibold">Produtos</h1>
 
-      {loading && <p>Carregando produtos</p>}
+      {loading && <p role="alert">Carregando produtos</p>}
 
       {error && (
-        <p>
+        <p role="alert">
           Não foi possível carregar os produtos. Tente novamente mais tarde.
         </p>
       )}
@@ -30,7 +30,7 @@ function Produtos() {
       <div>
         {!loading && !error && (
           <div>
-            <label htmlFor="busca">Busca:</label>
+            <label className="mb-1 block" htmlFor="busca">Busca:</label>
             <input
               type="text"
               placeholder="Buscar produto pelo nome"
@@ -42,7 +42,7 @@ function Produtos() {
           </div>
         )}
 
-        {busca && <button onClick={() => setBusca("")}>Limpar busca</button>}
+        {busca && <button className="mb-4 text-sm underline" onClick={() => setBusca("")}>Limpar busca</button>}
 
         {!loading &&
           !error &&
@@ -63,7 +63,7 @@ function Produtos() {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 
