@@ -12,7 +12,7 @@ function ProdutoCard ({ id, nome, preco, categoria, imagem, estoque }) {
                 <img className="w-full h-48 object-contain" src={imagem} alt={nome} />
             </div>
             <div>
-                <p className="text-xs uppercase tracking-wide text-[#C5A059]">{categoria}</p>
+                <p className="text-xs uppercase tracking-wide text-[#8A6A2F]">{categoria}</p>
                 <p>{nome}</p>
                 <p className="text-lg font-semibold">{formatarMoeda(preco)}</p>
                 <Link className="text-sm underline hover:text-[#C5A059]" to={`/produtos/${id}`}>Ver detalhes </Link>
