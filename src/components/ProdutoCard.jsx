@@ -17,7 +17,7 @@ function ProdutoCard ({ id, nome, preco, categoria, imagem, estoque }) {
                 <p className="text-lg font-semibold">{formatarMoeda(preco)}</p>
                 <Link className="text-sm underline hover:text-[#C5A059]" to={`/produtos/${id}`}>Ver detalhes </Link>
             </div>
-            <button className="mt-auto w-full rounded-md bg-[#4A3B32] px-4 py-2 text-white hover:bg-dourado disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#4A3B32]" disabled={estoque <= 0} onClick={() => adicionarItem({id, nome, preco, categoria, imagem, estoque})}>
+            <button className="mt-auto w-full cursor-pointer rounded-md bg-[#4A3B32] px-4 py-2 text-white transition hover:bg-[#33271F] active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#4A3B32] disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:bg-[#4A3B32]" disabled={estoque <= 0} onClick={() => adicionarItem({id, nome, preco, categoria, imagem, estoque})}>
                 {estoque <= 0 ? "Indisponível" : "Adicionar ao carrinho"}
             </button>
         </div>
