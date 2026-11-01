@@ -1,0 +1,112 @@
+{
+  "produtos": [
+    {
+      "id": "1",
+      "nome": "Cama Annibale Colombo",
+      "descricao": "Cama elegante com materiais de qualidade para um quarto confortável.",
+      "preco": 1899.99,
+      "categoria": "Móveis",
+      "imagem": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-bed/1.webp",
+      "estoque": 5
+    },
+    {
+      "id": "2",
+      "nome": "Sofá Annibale Colombo",
+      "descricao": "Sofá sofisticado com estofamento de qualidade para sua sala de estar.",
+      "preco": 2499.99,
+      "categoria": "Móveis",
+      "imagem": "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/1.webp",
+      "estoque": 5
+    },
+    {
+      "id": "3",
+      "nome": "Mesa de cabeceira em cerejeira africana",
+      "descricao": "Mesa funcional com espaço para guardar objetos e decorar o quarto.",
+      "preco": 299.99,
+      "categoria": "Móveis",
+      "imagem": "https://cdn.dummyjson.com/product-images/furniture/bedside-table-african-cherry/1.webp",
+      "estoque": 5
+    },
+    {
+      "id": "4",
+      "nome": "Pia de banheiro de madeira com espelho",
+      "descricao": "Bancada de madeira com espelho para um banheiro elegante.",
+      "preco": 799.99,
+      "categoria": "Móveis",
+      "imagem": "https://cdn.dummyjson.com/product-images/furniture/wooden-bathroom-sink-with-mirror/1.webp",
+      "estoque": 5
+    },
+    {
+      "id": "5",
+      "nome": "Porta-retratos em formato de árvore genealógica",
+      "descricao": "Porta-retratos em formato de árvore para reunir fotos da família.",
+      "preco": 29.99,
+      "categoria": "Decoração de Casa",
+      "imagem": "https://cdn.dummyjson.com/product-images/home-decoration/family-tree-photo-frame/1.webp",
+      "estoque": 5
+    },
+    {
+      "id": "6",
+      "nome": "Planta ornamental para interiores",
+      "descricao": "Planta artificial que traz um toque natural sem precisar de manutenção.",
+      "preco": 39.99,
+      "categoria": "Decoração de Casa",
+      "imagem": "https://cdn.dummyjson.com/product-images/home-decoration/house-showpiece-plant/1.webp",
+      "estoque": 5
+    },
+    {
+      "id": "7",
+      "nome": "Vaso de planta",
+      "descricao": "Vaso decorativo para valorizar plantas em ambientes internos ou externos.",
+      "preco": 14.99,
+      "categoria": "Decoração de Casa",
+      "imagem": "https://cdn.dummyjson.com/product-images/home-decoration/plant-pot/1.webp",
+      "estoque": 5
+    },
+    {
+      "id": "8",
+      "nome": "Luminária de mesa",
+      "descricao": "Luminária moderna para iluminar e decorar seu ambiente.",
+      "preco": 49.99,
+      "categoria": "Decoração de Casa",
+      "imagem": "https://cdn.dummyjson.com/product-images/home-decoration/table-lamp/1.webp",
+      "estoque": 5
+    },
+    {
+      "id": "9",
+      "nome": "Espátula de bambu",
+      "descricao": "Utensílio versátil para mexer, virar e servir alimentos.",
+      "preco": 7.99,
+      "categoria": "Acessórios de Cozinha",
+      "imagem": "https://cdn.dummyjson.com/product-images/kitchen-accessories/bamboo-spatula/1.webp",
+      "estoque": 5
+    },
+    {
+      "id": "10",
+      "nome": "Copo de alumínio preto",
+      "descricao": "Copo preto durável, ideal para servir bebidas com estilo.",
+      "preco": 5.99,
+      "categoria": "Acessórios de Cozinha",
+      "imagem": "https://cdn.dummyjson.com/product-images/kitchen-accessories/black-aluminium-cup/2.webp",
+      "estoque": 5
+    },
+    {
+      "id": "11",
+      "nome": "Tábua de cortar",
+      "descricao": "Tábua resistente para cortar e preparar alimentos.",
+      "preco": 12.99,
+      "categoria": "Acessórios de Cozinha",
+      "imagem": "https://cdn.dummyjson.com/product-images/kitchen-accessories/chopping-board/1.webp",
+      "estoque": 5
+    },
+    {
+      "id": "12",
+      "nome": "Suporte para temperos",
+      "descricao": "Organizador que mantém temperos e condimentos sempre à mão.",
+      "preco": 19.99,
+      "categoria": "Acessórios de Cozinha",
+      "imagem": "https://cdn.dummyjson.com/product-images/kitchen-accessories/spice-rack/1.webp",
+      "estoque": 5
+    }
+  ]
+}
