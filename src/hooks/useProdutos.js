@@ -1,4 +1,4 @@
-import{ useEffect, useState }  from 'react'
+import { useEffect, useState } from 'react'
 import { apiGet } from '../services/api'
 
 function useProdutos() {
@@ -9,13 +9,18 @@ function useProdutos() {
     useEffect(() => {
         async function fetchProdutos() {
             setLoading(true)
+            setError(null)
 
-            apiGet('produtos')
-                .then((dados) => setProdutos(dados))
-                .catch((error) => setError(error.message))
-                .finally(() => setLoading(false))
+            try {
+                const dados = await apiGet('produtos')
+                setProdutos(dados)
+            } catch (erro) {
+                setError(erro.message)
+            } finally {
+                setLoading(false)
+            }
         }
-    
+
         fetchProdutos()
     }, [])
 
