@@ -1,4 +1,5 @@
 import { formatarMoeda } from "../utils/moeda";
+import PropTypes from "prop-types";
 
 const botaoQuantidade =
   "h-8 w-8 rounded border border-[#CEBEA4] bg-white hover:bg-[#CEBEA4]/30 " +
@@ -66,6 +67,16 @@ function ItemCarrinho({
       </div>
     </li>
   );
+}
+
+ItemCarrinho.propTypes = {
+    id: PropTypes.string.isRequired,
+    nome: PropTypes.string.isRequired,
+    preco: PropTypes.number.isRequired,
+    quantidade: PropTypes.number.isRequired,
+    imagem: PropTypes.string.isRequired,
+    removerItem: PropTypes.func.isRequired,
+    alterarQuantidade: PropTypes.func.isRequired
 }
 
 export default ItemCarrinho;
