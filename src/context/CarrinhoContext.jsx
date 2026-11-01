@@ -1,4 +1,5 @@
 import { createContext, useState, useMemo } from "react";
+import PropTypes from "prop-types";
 
 export const CarrinhoContext = createContext();
 
@@ -74,3 +75,7 @@ export function CarrinhoProvider({ children }) {
     </CarrinhoContext.Provider>
   );
 }
+
+CarrinhoProvider.propTypes = { 
+  children: PropTypes.node.isRequired,
+};
