@@ -8,13 +8,13 @@ function ProdutoCard ({ id, nome, preco, categoria, imagem, estoque }) {
     const { adicionarItem } = useCarrinho()
 
     return (
-        <div className="flex flex-col gap-2 rounded-lg border border-[#CEBEA4] bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+        <div className="flex h-full flex-col gap-2 rounded-lg border border-[#CEBEA4] bg-white p-4 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
             <div>
                 <img className="w-full h-48 object-contain" src={imagem} alt={nome} />
             </div>
             <div>
                 <p className="text-xs uppercase tracking-wide text-[#8A6A2F]">{categoria}</p>
-                <p>{nome}</p>
+                <p className="line-clamp-2 min-h-12">{nome}</p>
                 <p className="text-lg font-semibold">{formatarMoeda(preco)}</p>
                 <Link className="text-sm underline hover:text-[#8A6A2F]" to={`/produtos/${id}`}>Ver detalhes </Link>
             </div>
