@@ -9,13 +9,13 @@ function DetalheProduto() {
   const { adicionarItem } = useCarrinho()
 
   return (
-    <div>
-      {loading && <p className="py-16 text-center">Carregando produto</p>}
+    <section className="mx-auto w-full max-w-5xl px-4">
+      {loading && <p role="status" className="py-16 text-center">Carregando produto</p>}
 
       {!loading && error && (
             <div className="mx-auto max-w-md py-16 text-center">
                 <p className="mb-4 text-xl font-semibold" role="alert">Produto não encontrado</p>
-                    <Link className="inline-block rounded-md bg-[#4A3B32] px-4 py-2 text-white hover:bg-[#C5A059]" to="/produtos" >
+                    <Link className="inline-block rounded-md bg-[#4A3B32] px-4 py-2 text-white hover:bg-[#33271F]" to="/produtos" >
                         Voltar ao catálogo
                     </Link>
             </div>
@@ -28,18 +28,18 @@ function DetalheProduto() {
           </div>
           <div className="flex flex-col gap-3"> 
             <h1 className="text-3xl font-semibold">{produto.nome}</h1>
-            <p className="text-2xl font-semibold text-[#C5A059]">{formatarMoeda(produto.preco)}</p>
+            <p className="text-2xl font-semibold text-[#8A6A2F]">{formatarMoeda(produto.preco)}</p>
             <p className="border-t border-[#CEBEA4] pt-4">{produto.descricao}</p>
             <p className="text-sm text-[#7A6A5F]">{produto.estoque} unidades em estoque</p>
 
-            <button className="mt-4 w-full rounded-md bg-[#4A3B32] px-4 py-2 text-white hover:bg-[#C5A059] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#4A3B32]" disabled={produto.estoque <= 0} onClick={() => adicionarItem(produto)}>
+            <button className="mt-4 w-full rounded-md bg-[#4A3B32] px-4 py-2 text-white hover:bg-[#33271F] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#4A3B32]" disabled={produto.estoque <= 0} onClick={() => adicionarItem(produto)}>
               {produto.estoque <= 0 ? "Indisponível" : "Adicionar ao carrinho"}
             </button>
           </div>
         </div>
       )}
 
-    </div>
+    </section>
   );
 }
 
