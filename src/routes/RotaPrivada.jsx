@@ -1,5 +1,6 @@
 import { Navigate } from "react-router-dom";
 import useCarrinho from "../hooks/useCarrinho";
+import PropTypes from "prop-types";
 
 function RotaPrivada({ children }) {
   const { itens } = useCarrinho();
@@ -9,6 +10,10 @@ function RotaPrivada({ children }) {
   }
 
   return <>{children}</>;
+}
+
+RotaPrivada.propTypes = {
+  children: PropTypes.node.isRequired
 }
 
 export default RotaPrivada;
