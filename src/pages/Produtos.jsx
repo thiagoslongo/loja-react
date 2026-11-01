@@ -15,7 +15,7 @@ function Produtos() {
     <section className="mx-auto w-full max-w-7xl px-4 py-6 sm:py-10">
       <h1 className="mb-4 text-2xl font-semibold">Produtos</h1>
 
-      {loading && <p role="alert">Carregando produtos</p>}
+      {loading && <p role="status">Carregando produtos</p>}
 
       {error && (
         <p role="alert">
@@ -50,19 +50,20 @@ function Produtos() {
           produtos.length > 0 && <p>Nenhum produto encontrado</p>}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {produtosFiltrados.map((produto) => (
-          <ProdutoCard
-            key={produto.id}
-            id={produto.id}
-            nome={produto.nome}
-            preco={produto.preco}
-            categoria={produto.categoria}
-            imagem={produto.imagem}
-            estoque={produto.estoque}
-          />
+          <li key={produto.id}>
+            <ProdutoCard
+              id={produto.id}
+              nome={produto.nome}
+              preco={produto.preco}
+              categoria={produto.categoria}
+              imagem={produto.imagem}
+              estoque={produto.estoque}
+            />
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   );
 }
