@@ -8,7 +8,7 @@ const produtos = [
 ];
 
 describe("filtrarProdutos", () => {
-    it("retorna os produtos que combinam com o termo que combinam", () => {
+    it("retorna os produtos que combinam com o termo", () => {
         expect(filtrarProdutos(produtos, "sofá")).toHaveLength(2)
     });
 
