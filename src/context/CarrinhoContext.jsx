@@ -1,10 +1,30 @@
-import { createContext, useState, useMemo } from "react";
+import { createContext, useState, useMemo, useEffect } from "react";
 import PropTypes from "prop-types";
 
 export const CarrinhoContext = createContext();
 
+const CHAVE_CARRINHO = "carrinho";
+
+ function lerCarrinhoSalvo() {
+    try {
+      const salvo = localStorage.getItem(CHAVE_CARRINHO);
+      return salvo ? JSON.parse(salvo) : [];
+    } catch {
+      return [];
+    }
+  }
+
 export function CarrinhoProvider({ children }) {
-  const [itens, setItens] = useState([]);
+  const [itens, setItens] = useState(lerCarrinhoSalvo);
+
+  useEffect(() => { 
+    try {
+      localStorage.setItem(CHAVE_CARRINHO, JSON.stringify(itens));
+    } catch {
+
+    }
+  }, [itens]);
+  
   const quantidadeTotal = useMemo(
     () => itens.reduce((total, item) => total + item.quantidade, 0),
     [itens],
