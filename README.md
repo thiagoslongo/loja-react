@@ -4,7 +4,7 @@ Loja virtual de móveis e decoração, com catálogo, busca, carrinho e simulaç
 
 🔗 **Site publicado:** https://nativa-casa.netlify.app/produtos
 📋 **Quadro no Trello:** https://trello.com/b/a6q1hjF0/projeto-loja-react-sc-tech
-🎥 **Vídeo de apresentação:** 
+🎥 **Vídeo de apresentação:** https://youtu.be/BZF8OQyjrZk
 
 ## 💡 Problema que resolve
 
