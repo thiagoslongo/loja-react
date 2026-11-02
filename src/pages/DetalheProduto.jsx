@@ -7,8 +7,11 @@ import { useState } from "react";
 function DetalheProduto() {
   const { id } = useParams();
   const { produto, loading, error } = useProduto(id);
-  const { adicionarItem } = useCarrinho()
+  const { adicionarItem, itens } = useCarrinho()
   const [adicionando, setAdicionando] = useState(false);
+  const itemNoCarrinho = itens.find((item) => item.id === produto?.id);
+  const quantidadeNoCarrinho = itemNoCarrinho?.quantidade ?? 0;
+  const limiteAtingido = quantidadeNoCarrinho >= produto?.estoque;
 
   function aoAdicionar() {
     adicionarItem(produto);
@@ -19,7 +22,7 @@ function DetalheProduto() {
     }, 1500);
   }
 
-  const indisponivel = produto?.estoque <= 0;
+  const indisponivel = produto?.estoque <= 0 || limiteAtingido;
 
   let textoBotao = "Adicionar ao carrinho";
   if (indisponivel) {
