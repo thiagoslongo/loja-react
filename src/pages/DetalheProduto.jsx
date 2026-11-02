@@ -55,7 +55,7 @@ function DetalheProduto() {
             <p className="border-t border-[#CEBEA4] pt-4">{produto.descricao}</p>
             <p className="text-sm text-[#7A6A5F]">{produto.estoque} unidades em estoque</p>
 
-            <button className="mt-4 w-full rounded-md bg-[#4A3B32] px-4 py-2 text-white hover:bg-[#33271F] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#4A3B32]" 
+            <button className="mt-4 w-full cursor-pointer rounded-md bg-[#4A3B32] px-4 py-2 text-white hover:bg-[#33271F] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-[#4A3B32]"
               disabled={indisponivel || adicionando}
               onClick={aoAdicionar}
             >
