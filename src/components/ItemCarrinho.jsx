@@ -2,8 +2,8 @@ import { formatarMoeda } from "../utils/moeda";
 import PropTypes from "prop-types";
 
 const botaoQuantidade =
-  "h-8 w-8 rounded border border-[#CEBEA4] bg-white hover:bg-[#CEBEA4]/30 " +
-  "disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-[#CEBEA4]";
+  "h-8 w-8 cursor-pointer rounded border border-[#CEBEA4] bg-white hover:bg-[#CEBEA4]/30 " +
+  "disabled:cursor-not-allowed disabled:opacity-40 focus-visible:ring-2 focus-visible:ring-[#CEBEA4]";
 
 function ItemCarrinho({
   nome,
@@ -33,6 +33,7 @@ function ItemCarrinho({
         <div className="flex flex-wrap items-center gap-3">
           <div className="flex items-center gap-2">
             <button
+              type="button"
               className={botaoQuantidade}
               onClick={() => alterarQuantidade(id, quantidade - 1)}
               disabled={quantidade <= 1}
@@ -44,6 +45,7 @@ function ItemCarrinho({
               {quantidade}
             </span>
             <button
+              type="button"
               className={botaoQuantidade}
               onClick={() => alterarQuantidade(id, quantidade + 1)}
               aria-label={`Aumentar quantidade de ${nome}`}
@@ -53,7 +55,8 @@ function ItemCarrinho({
           </div>
 
           <button
-            className="text-sm underline"
+            type="button"
+            className="cursor-pointer text-sm underline transition hover:text-red-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700"
             onClick={() => removerItem(id)}
             aria-label={`Remover ${nome} do carrinho`}
           >
