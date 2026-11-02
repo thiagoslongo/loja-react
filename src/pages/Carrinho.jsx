@@ -4,7 +4,13 @@ import ItemCarrinho from "../components/ItemCarrinho";
 import { Link } from "react-router-dom";
 
 function Carrinho() {
-  const { itens, removerItem, alterarQuantidade, valorTotal } = useCarrinho();
+  const { itens, removerItem, alterarQuantidade, valorTotal, limparCarrinho } = useCarrinho();
+
+  function aoLimpar() {
+    if (window.confirm("Deseja remover todos os itens do carrinho?")) {
+      limparCarrinho();
+    }
+  }
 
   return (
     <section className="mx-auto w-full max-w-5xl px-4 py-6 sm:py-10">
@@ -24,6 +30,15 @@ function Carrinho() {
 
       {itens.length > 0 && (
         <>
+          <div className="mb-3 flex justify-end">
+            <button
+              type="button"
+              onClick={aoLimpar}
+              className="cursor-pointer rounded-md border border-red-700 px-4 py-2 text-sm text-red-700 transition hover:bg-red-700 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-700"
+            >
+              Limpar carrinho
+            </button>
+          </div>
           <ul className="flex flex-col gap-3 sm:gap-4">
             {itens.map((item) => (
               <ItemCarrinho
